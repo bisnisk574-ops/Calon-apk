@@ -15,8 +15,8 @@
             <h1 class="text-xl font-bold tracking-wide">BEBAS <span class="text-indigo-200 font-normal">POS</span></h1>
         </div>
         <div class="flex items-center space-x-4">
-            <span id="status-operator" class="text-sm bg-indigo-700 px-3 py-1 rounded-full"><i class="fa-solid fa-user mr-2"></i>Admin Kasir</span>
-            <span id="status-koneksi" class="text-xs bg-green-500 px-2 py-1 rounded text-white font-bold">ONLINE</span>
+            <span class="text-sm bg-indigo-700 px-3 py-1 rounded-full"><i class="fa-solid fa-user mr-2"></i>Admin Kasir</span>
+            <span class="text-xs bg-green-500 px-2 py-1 rounded text-white font-bold">ONLINE</span>
         </div>
     </header>
 
@@ -24,31 +24,9 @@
         
         <nav class="w-20 md:w-64 bg-white border-r border-gray-200 flex flex-col justify-between shadow-sm">
             <div class="p-4 space-y-2">
-                <button class="w-full flex items-center space-x-3 bg-indigo-50 text-indigo-600 p-3 rounded-xl font-semibold transition">
+                <button class="w-full flex items-center space-x-3 bg-indigo-50 text-indigo-600 p-3 rounded-xl font-semibold">
                     <i class="fa-solid fa-store text-lg"></i>
                     <span class="hidden md:inline">Mesin Kasir</span>
-                </button>
-                <button class="w-full flex items-center space-x-3 text-gray-600 hover:bg-gray-50 p-3 rounded-xl transition">
-                    <i class="fa-solid fa-boxes-stacked text-lg"></i>
-                    <span class="hidden md:inline">Stok & Produk</span>
-                </button>
-                <button class="w-full flex items-center space-x-3 text-gray-600 hover:bg-gray-50 p-3 rounded-xl transition">
-                    <i class="fa-solid fa-users text-lg"></i>
-                    <span class="hidden md:inline">Pelanggan</span>
-                </button>
-                <button class="w-full flex items-center space-x-3 text-gray-600 hover:bg-gray-50 p-3 rounded-xl transition">
-                    <i class="fa-solid fa-chart-pie text-lg"></i>
-                    <span class="hidden md:inline">Laporan Keuangan</span>
-                </button>
-                <button class="w-full flex items-center space-x-3 text-gray-600 hover:bg-gray-50 p-3 rounded-xl transition">
-                    <i class="fa-solid fa-gears text-lg"></i>
-                    <span class="hidden md:inline">Pengaturan Toko</span>
-                </button>
-            </div>
-            <div class="p-4 border-t border-gray-100">
-                <button class="w-full flex items-center space-x-3 text-red-500 hover:bg-red-50 p-3 rounded-xl transition">
-                    <i class="fa-solid fa-right-from-bracket text-lg"></i>
-                    <span class="hidden md:inline">Tutup Shift</span>
                 </button>
             </div>
         </nav>
@@ -59,59 +37,42 @@
                 <div class="flex space-x-2 mb-4">
                     <div class="relative flex-1">
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-3.5 text-gray-400"></i>
-                        <input type="text" placeholder="Cari nama produk atau scan barcode..." class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-indigo-500 transition">
+                        <input type="text" placeholder="Cari produk (Simulasi klik produk di bawah)..." class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none">
                     </div>
-                    <button class="bg-indigo-600 text-white px-4 rounded-xl hover:bg-indigo-700 transition"><i class="fa-solid fa-camera"></i></button>
                 </div>
 
-                <div class="flex-1 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 pr-2">
-                    <div class="border border-gray-100 rounded-xl p-3 flex flex-col justify-between hover:shadow-md transition cursor-pointer bg-gray-50/50">
-                        <div class="bg-gray-200 h-28 rounded-lg mb-2 flex items-center justify-center text-gray-400"><i class="fa-regular fa-image text-2xl"></i></div>
-                        <h3 class="font-semibold text-gray-800 text-sm line-clamp-2">Kopi Susu Gula Aren</h3>
-                        <div class="flex justify-between items-center mt-2">
-                            <span class="text-xs text-gray-500">Stok: 50</span>
-                            <span class="text-indigo-600 font-bold text-sm">Rp15.000</span>
-                        </div>
+                <div class="flex-1 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 gap-4 pr-2">
+                    <div onclick="tambahKeKeranjang('PROD01', 'Kopi Susu Aren', 15000)" class="border border-gray-100 rounded-xl p-3 flex flex-col justify-between hover:shadow-md transition cursor-pointer bg-gray-50/50">
+                        <div class="bg-indigo-100 h-24 rounded-lg mb-2 flex items-center justify-center text-indigo-400"><i class="fa-solid fa-coffee text-2xl"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-sm">Kopi Susu Aren</h3>
+                        <p class="text-indigo-600 font-bold text-sm mt-1">Rp15.000</p>
                     </div>
+                    <div onclick="tambahKeKeranjang('PROD02', 'Roti Bakar Cokelat', 12000)" class="border border-gray-100 rounded-xl p-3 flex flex-col justify-between hover:shadow-md transition cursor-pointer bg-gray-50/50">
+                        <div class="bg-amber-100 h-24 rounded-lg mb-2 flex items-center justify-center text-amber-400"><i class="fa-solid fa-bread-slice text-2xl"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-sm">Roti Bakar Cokelat</h3>
+                        <p class="text-indigo-600 font-bold text-sm mt-1">Rp12.000</p>
                     </div>
+                </div>
             </div>
 
             <div class="w-full lg:w-96 bg-white rounded-2xl shadow-sm flex flex-col justify-between overflow-hidden border border-gray-100">
                 <div class="p-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
-                    <h2 class="font-bold text-gray-800 flex items-center"><i class="fa-solid fa-basket-shopping mr-2 text-indigo-600"></i>Keranjang</h2>
-                    <button class="text-xs text-red-500 hover:underline"><i class="fa-solid fa-trash mr-1"></i>Kosongkan</button>
+                    <h2 class="font-bold text-gray-800"><i class="fa-solid fa-basket-shopping mr-2 text-indigo-600"></i>Keranjang</h2>
+                    <button onclick="kosongkanKeranjang()" class="text-xs text-red-500 hover:underline">Kosongkan</button>
                 </div>
 
-                <div class="flex-1 overflow-y-auto p-4 space-y-3">
-                    <div class="flex justify-between items-center bg-gray-50 p-3 rounded-xl border border-gray-100">
-                        <div class="flex-1 min-w-0 pr-2">
-                            <h4 class="font-medium text-gray-800 text-sm truncate">Kopi Susu Gula Aren</h4>
-                            <span class="text-xs text-indigo-600 font-semibold">Rp15.000</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <button class="w-7 h-7 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-xs hover:bg-gray-100">-</button>
-                            <span class="text-sm font-bold w-4 text-center">2</span>
-                            <button class="w-7 h-7 bg-indigo-600 text-white rounded-lg flex items-center justify-center text-xs hover:bg-indigo-700">+</button>
-                        </div>
-                    </div>
+                <div id="wadah-keranjang" class="flex-1 overflow-y-auto p-4 space-y-3">
+                    <p class="text-gray-400 text-center py-8 text-sm">Keranjang kosong. Klik produk di kiri!</p>
                 </div>
 
                 <div class="p-4 border-t border-gray-100 space-y-3 bg-gray-50/50">
-                    <div class="flex justify-between text-sm text-gray-600">
-                        <span>Subtotal</span>
-                        <span>Rp30.000</span>
-                    </div>
-                    <div class="flex justify-between text-sm text-gray-600">
-                        <span>Diskon / Pajak</span>
-                        <span class="text-red-500">-Rp0</span>
-                    </div>
-                    <div class="flex justify-between items-center pt-2 border-t border-gray-200">
+                    <div class="flex justify-between items-center pt-2">
                         <span class="font-bold text-gray-800">TOTAL BIAYA</span>
-                        <span class="text-xl font-black text-indigo-600">Rp30.000</span>
+                        <span id="total-harga" class="text-xl font-black text-indigo-600">Rp0</span>
                     </div>
-                    <button class="w-full bg-green-500 text-white font-bold py-3.5 rounded-xl hover:bg-green-600 shadow-lg shadow-green-100 flex justify-center items-center space-x-2 transition cursor-pointer">
+                    <button onclick="prosesBayar()" class="w-full bg-green-500 text-white font-bold py-3.5 rounded-xl hover:bg-green-600 flex justify-center items-center space-x-2 transition cursor-pointer">
                         <i class="fa-solid fa-money-bill-wave"></i>
-                        <span>PROSES BAYAR (F10)</span>
+                        <span>PROSES BAYAR</span>
                     </button>
                 </div>
             </div>
@@ -119,5 +80,90 @@
         </main>
     </div>
 
+    <script>
+        // Data keranjang belanja disimpan di memori HP sementara
+        let keranjang = [];
+
+        // Fungsi 1: Tambah Item ke Keranjang
+        function tambahKeKeranjang(id, nama, harga) {
+            const produkAda = keranjang.find(item => item.id === id);
+            
+            if (produkAda) {
+                produkAda.qty += 1;
+            } else {
+                keranjang.push({ id, nama, harga, qty: 1 });
+            }
+            perbaruiTampilanKeranjang();
+        }
+
+        // Fungsi 2: Kurangi atau tambah Qty di dalam keranjang
+        function ubahQty(id, aksi) {
+            const item = keranjang.find(item => item.id === id);
+            if (!item) return;
+
+            if (aksi === 'tambah') {
+                item.qty += 1;
+            } else if (aksi === 'kurang') {
+                item.qty -= 1;
+                if (item.qty <= 0) {
+                    keranjang = keranjang.filter(i => i.id !== id); // Hapus jika 0
+                }
+            }
+            perbaruiTampinganKeranjang(); // Typo handler
+            perbaruiTampilanKeranjang();
+        }
+
+        function kosongkanKeranjang() {
+            keranjang = [];
+            perbaruiTampilanKeranjang();
+        }
+
+        // Fungsi 3: Render data dari Array JS ke HTML Layar
+        function perbaruiTampilanKeranjang() {
+            const wadah = document.getElementById('wadah-keranjang');
+            const labelTotal = document.getElementById('total-harga');
+            
+            if (keranjang.length === 0) {
+                wadah.innerHTML = `<p class="text-gray-400 text-center py-8 text-sm">Keranjang kosong. Klik produk di kiri!</p>`;
+                labelTotal.innerText = "Rp0";
+                return;
+            }
+
+            let htmlKonten = '';
+            let hitungTotal = 0;
+
+            keranjang.forEach(item => {
+                const subtotalItem = item.harga * item.qty;
+                hitungTotal += subtotalItem;
+
+                htmlKonten += `
+                    <div class="flex justify-between items-center bg-gray-50 p-3 rounded-xl border border-gray-100">
+                        <div class="flex-1 min-w-0 pr-2">
+                            <h4 class="font-medium text-gray-800 text-sm truncate">${item.nama}</h4>
+                            <span class="text-xs text-indigo-600 font-semibold">Rp${item.harga.toLocaleString('id-ID')}</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="ubahQty('${item.id}', 'kurang')" class="w-7 h-7 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-xs hover:bg-gray-100 cursor-pointer">-</button>
+                            <span class="text-sm font-bold w-4 text-center">${item.qty}</span>
+                            <button onclick="ubahQty('${item.id}', 'tambah')" class="w-7 h-7 bg-indigo-600 text-white rounded-lg flex items-center justify-center text-xs hover:bg-indigo-700 cursor-pointer">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            wadah.innerHTML = htmlKonten;
+            labelTotal.innerText = `Rp${hitungTotal.toLocaleString('id-ID')}`;
+        }
+
+        // Fungsi 4: Simulasi Klik Bayar
+        function prosesBayar() {
+            if(keranjang.length === 0) {
+                alert("Keranjang masih kosong, Bos!");
+                return;
+            }
+            alert("Transaksi Sukses Disimpan! (Berikutnya kita hubungkan ke database Firebase)");
+            kosongkanKeranjang();
+        }
+    </script>
 </body>
 </html>

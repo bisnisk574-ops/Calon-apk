@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP-POS v1.0</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans h-screen flex flex-col overflow-hidden">
+
+    <header class="bg-indigo-600 text-white px-6 py-4 flex justify-between items-center shadow-md">
+        <div class="flex items-center space-x-3">
+            <i class="fa-solid fa-cash-register text-2xl"></i>
+            <h1 class="text-xl font-bold tracking-wide">BEBAS <span class="text-indigo-200 font-normal">POS</span></h1>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span id="status-operator" class="text-sm bg-indigo-700 px-3 py-1 rounded-full"><i class="fa-solid fa-user mr-2"></i>Admin Kasir</span>
+            <span id="status-koneksi" class="text-xs bg-green-500 px-2 py-1 rounded text-white font-bold">ONLINE</span>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        
+        <nav class="w-20 md:w-64 bg-white border-r border-gray-200 flex flex-col justify-between shadow-sm">
+            <div class="p-4 space-y-2">
+                <button class="w-full flex items-center space-x-3 bg-indigo-50 text-indigo-600 p-3 rounded-xl font-semibold transition">
+                    <i class="fa-solid fa-store text-lg"></i>
+                    <span class="hidden md:inline">Mesin Kasir</span>
+                </button>
+                <button class="w-full flex items-center space-x-3 text-gray-600 hover:bg-gray-50 p-3 rounded-xl transition">
+                    <i class="fa-solid fa-boxes-stacked text-lg"></i>
+                    <span class="hidden md:inline">Stok & Produk</span>
+                </button>
+                <button class="w-full flex items-center space-x-3 text-gray-600 hover:bg-gray-50 p-3 rounded-xl transition">
+                    <i class="fa-solid fa-users text-lg"></i>
+                    <span class="hidden md:inline">Pelanggan</span>
+                </button>
+                <button class="w-full flex items-center space-x-3 text-gray-600 hover:bg-gray-50 p-3 rounded-xl transition">
+                    <i class="fa-solid fa-chart-pie text-lg"></i>
+                    <span class="hidden md:inline">Laporan Keuangan</span>
+                </button>
+                <button class="w-full flex items-center space-x-3 text-gray-600 hover:bg-gray-50 p-3 rounded-xl transition">
+                    <i class="fa-solid fa-gears text-lg"></i>
+                    <span class="hidden md:inline">Pengaturan Toko</span>
+                </button>
+            </div>
+            <div class="p-4 border-t border-gray-100">
+                <button class="w-full flex items-center space-x-3 text-red-500 hover:bg-red-50 p-3 rounded-xl transition">
+                    <i class="fa-solid fa-right-from-bracket text-lg"></i>
+                    <span class="hidden md:inline">Tutup Shift</span>
+                </button>
+            </div>
+        </nav>
+
+        <main class="flex-1 flex flex-col lg:flex-row p-6 space-y-6 lg:space-y-0 lg:space-x-6 overflow-hidden">
+            
+            <div class="flex-1 flex flex-col bg-white rounded-2xl shadow-sm p-4 overflow-hidden">
+                <div class="flex space-x-2 mb-4">
+                    <div class="relative flex-1">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3.5 text-gray-400"></i>
+                        <input type="text" placeholder="Cari nama produk atau scan barcode..." class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-indigo-500 transition">
+                    </div>
+                    <button class="bg-indigo-600 text-white px-4 rounded-xl hover:bg-indigo-700 transition"><i class="fa-solid fa-camera"></i></button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 pr-2">
+                    <div class="border border-gray-100 rounded-xl p-3 flex flex-col justify-between hover:shadow-md transition cursor-pointer bg-gray-50/50">
+                        <div class="bg-gray-200 h-28 rounded-lg mb-2 flex items-center justify-center text-gray-400"><i class="fa-regular fa-image text-2xl"></i></div>
+                        <h3 class="font-semibold text-gray-800 text-sm line-clamp-2">Kopi Susu Gula Aren</h3>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-xs text-gray-500">Stok: 50</span>
+                            <span class="text-indigo-600 font-bold text-sm">Rp15.000</span>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+
+            <div class="w-full lg:w-96 bg-white rounded-2xl shadow-sm flex flex-col justify-between overflow-hidden border border-gray-100">
+                <div class="p-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                    <h2 class="font-bold text-gray-800 flex items-center"><i class="fa-solid fa-basket-shopping mr-2 text-indigo-600"></i>Keranjang</h2>
+                    <button class="text-xs text-red-500 hover:underline"><i class="fa-solid fa-trash mr-1"></i>Kosongkan</button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto p-4 space-y-3">
+                    <div class="flex justify-between items-center bg-gray-50 p-3 rounded-xl border border-gray-100">
+                        <div class="flex-1 min-w-0 pr-2">
+                            <h4 class="font-medium text-gray-800 text-sm truncate">Kopi Susu Gula Aren</h4>
+                            <span class="text-xs text-indigo-600 font-semibold">Rp15.000</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button class="w-7 h-7 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-xs hover:bg-gray-100">-</button>
+                            <span class="text-sm font-bold w-4 text-center">2</span>
+                            <button class="w-7 h-7 bg-indigo-600 text-white rounded-lg flex items-center justify-center text-xs hover:bg-indigo-700">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 border-t border-gray-100 space-y-3 bg-gray-50/50">
+                    <div class="flex justify-between text-sm text-gray-600">
+                        <span>Subtotal</span>
+                        <span>Rp30.000</span>
+                    </div>
+                    <div class="flex justify-between text-sm text-gray-600">
+                        <span>Diskon / Pajak</span>
+                        <span class="text-red-500">-Rp0</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-2 border-t border-gray-200">
+                        <span class="font-bold text-gray-800">TOTAL BIAYA</span>
+                        <span class="text-xl font-black text-indigo-600">Rp30.000</span>
+                    </div>
+                    <button class="w-full bg-green-500 text-white font-bold py-3.5 rounded-xl hover:bg-green-600 shadow-lg shadow-green-100 flex justify-center items-center space-x-2 transition cursor-pointer">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                        <span>PROSES BAYAR (F10)</span>
+                    </button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
